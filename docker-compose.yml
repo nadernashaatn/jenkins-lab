@@ -53,7 +53,7 @@ services:
       - postgres
   artifactory:
     container_name: artifactory
-    image: artifactory-ca:latest
+    image: releases-docker.jfrog.io/jfrog/artifactory-oss:latest
     #image: docker.bintray.io/jfrog/artifactory-oss:6.5.3
     networks:
       - cloudacademylabs
