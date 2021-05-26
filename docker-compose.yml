@@ -51,7 +51,18 @@ services:
       SONARQUBE_JDBC_URL: "jdbc:postgresql://postgres:5432/sonar"
     depends_on:
       - postgres
-
+  splunk:
+    container_name: splunk
+    #image: splunk-ca:latest
+    image: splunk/splunk:latest
+    networks:
+      - cloudacademylabs
+    ports:
+      - 8000:8000
+      - 9997:9997
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=qwerty123
 networks:
   cloudacademylabs:
     name: cloudacademylabs
